@@ -1,0 +1,31 @@
+.ex1 {
+    background-color: lightblue;
+    width: 150px;
+    height: 100px;
+    /* overflow: visible; */
+    /* overflow: scroll; */
+    overflow: hidden;
+    /* overflow: clip;  */
+    /* overflow:auto; */
+  }
+
+div {
+    background: tomato;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.container {
+    background: black;
+    /* position: relative; */
+    top: 50px;
+    left: 50px;
+} 
+#box {
+    background: aqua;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    position: sticky;
+}
