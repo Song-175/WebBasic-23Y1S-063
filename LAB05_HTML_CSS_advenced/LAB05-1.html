@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB05-1</title>
+    <style>
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #f2f2f2;
+			padding: 20px;
+			box-sizing: border-box;
+			min-height: 300px;
+		}
+
+		.box {
+			flex: 1 1 200px;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			padding: 20px;
+			box-sizing: border-box;
+			margin-bottom: 20px;
+		}
+
+		.box:nth-child(odd) {
+			background-color: #e6e6e6;
+		}
+	</style>
+</head>
+<body>
+    <div class="container">
+		<div class="box">Box 1</div>
+		<div class="box">Box 2</div>
+		<div class="box">Box 3</div>
+		<div class="box">Box 4</div>
+		<div class="box">Box 5</div>
+		<div class="box">Box 6</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gridlayout</title>
+
+    <style>
+        .box{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: skyblue;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: yellowgreen;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: hotpink;
+        }
+        #div4{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: tomato;
+        }
+        #div5{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="div1">A</div>
+        <div id="div2">B</div>
+        <div id="div3">C</div>
+        <div id="div4">D</div>
+        <div id="div5">E</div>
+    </div>
+</body>
+</html>
