@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+    function star(){
+        let n = prompt("숫자를 입력하세요","메시지");
+
+        for(let i=0; i<parseInt(n); i++){
+            for(let j=0; j<i; j++){
+                document.write("*")
+
+            }
+            document.write("<br>")
+        }
+    }
+</script>
+
+</head>
+<body>
+    <h1>별</h1>
+    <hr>
+    <script>star()</script>
+
+</body>
+</html>

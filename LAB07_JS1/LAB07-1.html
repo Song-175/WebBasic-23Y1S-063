@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB07-1</title>
+    <script>
+        function star(){
+            let n = prompt("숫자를 입력하세요.", "");
+
+            let m = parseInt(n);
+            if(isNaN(m) || m < 1 || m > 9){
+                alert("잘못입력하셨습니다.");
+                return;
+            }
+
+            for(let i=0; i<m; i++){
+                for(let j=0; j<m-i;j++){
+                    document.write("*")
+                }
+                document.write("<br>")
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>별 찍기2</h1>
+    <hr>
+    <script>star()</script>
+</body>
+</html>

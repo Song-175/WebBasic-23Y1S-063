@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB07-3</title>
+    <script>
+        function compare(){
+            let inp = prompt("숫자 입력");
+            let n = parseInt(inp);
+
+            var max = 0;
+            var min = n%10;
+
+            while(n != 0){
+                max = n%10;
+                n = Math.floor(n/10);
+            document.write(max+":max <br>") 
+            document.write(n+":n <br> ---- <br>") 
+            }
+
+            document.write("<br>"+max+":max<br>") 
+            document.write(min+":min<br>") 
+            if(max == min) document.write(inp + ": 같음");
+
+            else document.write(inp + ": 다름");
+        }
+    </script>
+</head>
+<body>
+    <h1>큰수 작은수 비교</h1>
+    <hr>
+    <script>
+        compare();
+    </script>
+</body>
+</html>
