@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB08-2</title>
+</head>
+<body>
+    <h1>book 객체 만들기</h1>
+    <hr>
+    <script>
+        var books = new Array();
+
+        var max = 0, idx = 0;
+        for(let i=0; i<5; i++){
+            let inp = prompt(",로 분리하며 책제목 저자 가격 순 입력", "");
+
+            var book = new Object();
+            book.title = inp.split(",")[0];
+            book.author = inp.split(",")[1];
+            book.price = inp.split(",")[2];
+            books.push(book);
+
+            if(max < parseInt(book.price)){
+                max = parseInt(book.price);
+                idx = i;
+            }
+        }
+
+        for(var item of books){
+            document.write(item.title+", "+item.author+", "+item.price+"<br>");
+        }
+
+        document.write("<hr><h4>가장 가격이 비싼 책은"+books[idx].title);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB08-3</title>
+    <style>
+        div{
+            width: 120px;
+            height: 90px;
+        }
+    </style>
+    <script>
+        function color(n){
+            const colors = ["red", "green", "blue", "yellow"];
+            
+            var div = document.getElementById("color");
+
+            div.innerHTML = colors[n];
+            div.style.backgroundColor = colors[n];
+        }
+    </script>
+</head> 
+<body>
+    <h1>버튼 누르면 색 바꾸기</h1>
+    <hr>
+    <button type="button" onclick="color(0)">red</button>
+    <button type="button" onclick="color(1)">green</button>
+    <button type="button" onclick="color(2)">blue</button>
+    <button type="button" onclick="color(3)">yellow</button>
+    <div id="color"></div>
+</body>
+</html>

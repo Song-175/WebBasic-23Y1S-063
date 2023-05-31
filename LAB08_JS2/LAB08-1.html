@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB08-1</title>
+</head>
+<body>
+    <h1>정수 5개 입력받아 역순으로 출력</h1>
+    <hr>
+    <script>
+        var num = new Array();
+
+        for(let i=0; i<5; i++){
+            let inp = prompt("정수 입력", "");
+
+            num.push(inp);
+        }
+
+        document.write("입력된 수의 배열<br>");
+        for(let i=0; i<5; i++){
+            document.write(num[i]+" ");
+        }
+        document.write("<hr>역순으로 재정렬된 배열<br>")
+        for(let i=4;i>=0;i--){
+            document.write(num[i]+" ");
+        }
+    </script>
+</body>
+</html>
