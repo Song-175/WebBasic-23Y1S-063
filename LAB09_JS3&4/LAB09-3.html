@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Demo 1 </title>
+        <style>
+            .box1{
+                border-radius:10px;
+                border:2px solid #73AD21;
+                background-color : #73AD21;
+                padding : 10px;
+                margin : 10px;
+                width : 400px;
+                height : 20px;
+                color : white;
+                text-align: center;
+            }
+            .box2{
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+                text-align: center;
+            }
+            .box3{
+                margin: 10px;
+                padding: 10px;
+                font-size: 14px;
+                color : red;
+                text-align : center;
+            }
+            #msgimg{
+                width : 400px;
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid #73AD21;
+                text-align: center;
+            }
+            .card{
+                width: 60px;
+                height: 60px;
+                border: 2px solid #73AD21;
+                border-radius: 5px;
+                margin: 5px;
+                padding-top: 6px;
+                font-size: 25px;
+                float:left;
+            }
+            .cardClear{
+                clear : both;
+            }
+            #msg{
+                border-radius: 5px;
+                border: 2px solid #73AD21;
+                padding: 10px;
+                padding-left: 20px;
+                margin: 10;
+                width: 400px;
+                height: 200px;
+                font-size: 14px;
+                text-align:left;
+                float : left;
+            }
+            p{
+                color:red;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script>
+            function init(){
+                //어제 날짜 가져오기
+                var newDate = new Date();
+                //year
+                $("#txtYear").val(newDate.getFullYear());
+                //month
+                var mon = newDate.getMonth()+1;
+                if(newDate.getMonth()<10){
+                    mon = "0"+mon;
+                }
+                $("#selMon").val(mon);
+                //day
+                var d = newDate.getDate()-1;
+                if(newDate.getDate()<10){
+                    d="0"+d;
+                }
+                $("#selDay").val(d);
+
+                //올바른 url 표시했는지 확인하기
+                console.log(d)
+            }
+            
+            $(document).ready(function(){
+                //오늘날짜가 기본적으로 보임
+                init();
+
+                $("#bt1").click(function(){
+                    var url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml?key=cdd85d204bd3e8851b607b92f5113f8c&targetDt=";
+
+                    url = url   + $("#txtYear").val()
+                                + $("#selMon").val()
+                                + $("#selDay").val();
+                                
+                    $("#msg").text("");
+
+                    $.ajax({
+                        type    : "GET",
+                        url     : url,
+                        dataType: "xml",
+                        //data 받기 성공
+                        success : function(data){
+                            var str = "";
+                            console.log(data);
+                            
+                            //잘못된 데이터 입력시 오류 처리
+                            if($(data).find("dailyBoxOffice").text()==""){
+                                alert("일일자료가 존재하지 않습니다.");
+                                return;
+                            }
+                            //dailyBoxOffice 에서 rank 정보 받아서 영화 제목과 표시
+                            $(data).find("dailyBoxOffice").each(function(){
+                                //순위 표시 
+                                str = str   + $(this).find("rank").text()
+                                            + "위 (" ;
+                                //순위의 증감표시
+                                rankInten = parseInt($(this).find("rankInten").text());
+                                if(rankInten>0){
+                                    str = str + "▲"+rankInten+") :"
+                                }
+                                else if(rankInten<0){
+                                    str = str +"▼"+Math.abs(rankInten)+") :"
+                                }
+                                else{
+                                    str = str + rankInten + ") :"
+                                }
+                                
+                                //영화이름 표시
+                                str = str+$(this).find("movieNm").text()+"<br>";
+                                    
+                            });
+                            $("#msg").append(str);
+                        },
+                        //data 받기 실패했을때
+                        error : function(){
+                            alert("오류입니다!!");
+                        }
+                    });
+                });
+            });
+           
+        </script>
+    </head>
+
+    <body>
+        <form name="myform">
+            <div class="box1">
+                일별 박스오피스
+            </div>
+            <div class="box2">
+                <input type="text" name = "txtYear" id ="txtYear" size="5">년
+                <select id="selMon">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>월
+                <select id="selDay">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>일
+                
+                <input type="button" value="확인" id="bt1">
+            </div>
+            
+            <div id="msg"></div>
+            <div class="cardClear"></div>
+            <div class="box3"></div>
+        </form>
+    </body>
+</html>
